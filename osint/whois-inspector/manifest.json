@@ -1,0 +1,24 @@
+{
+  "name": "whois-inspector",
+  "version": "1.0.0",
+  "description": "Detailed WHOIS domain registration lookup and analysis",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "activeTab",
+    "network",
+    "contextMenu"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "osint",
+  "marshall_version": ">=1.0.0",
+  "keywords": [
+    "whois",
+    "domain",
+    "osint",
+    "registration",
+    "lookup"
+  ]
+}

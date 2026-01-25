@@ -1,0 +1,24 @@
+{
+  "name": "header-analyzer",
+  "version": "1.0.0",
+  "description": "Analyze HTTP security headers and provide recommendations",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "activeTab",
+    "network",
+    "webRequest"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "security",
+  "marshall_version": ">=1.0.0",
+  "keywords": [
+    "headers",
+    "security",
+    "analysis",
+    "csp",
+    "hsts"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "shodan-lookup",
+  "version": "1.0.0",
+  "description": "Query Shodan.io for IP and domain intelligence directly from Marshall Browser",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "network",
+    "contextMenu"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "osint",
+  "marshall_version": ">=1.0.0",
+  "keywords": [
+    "shodan",
+    "osint",
+    "reconnaissance",
+    "ip-lookup",
+    "security"
+  ],
+  "settings": {
+    "api_key": {
+      "type": "string",
+      "label": "Shodan API Key",
+      "description": "Your Shodan.io API key",
+      "required": true
+    },
+    "auto_lookup": {
+      "type": "boolean",
+      "label": "Auto Lookup",
+      "description": "Automatically lookup IP on page load",
+      "default": false
+    }
+  }
+}

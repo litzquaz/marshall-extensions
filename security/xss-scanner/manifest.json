@@ -1,0 +1,45 @@
+{
+  "name": "xss-scanner",
+  "version": "1.0.0",
+  "description": "Detect Cross-Site Scripting (XSS) vulnerabilities in web applications",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "network",
+    "dom"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "security",
+  "marshall_version": ">=1.0.0",
+  "keywords": [
+    "xss",
+    "security",
+    "vulnerability",
+    "scanner",
+    "pentest"
+  ],
+  "settings": {
+    "aggressive_mode": {
+      "type": "boolean",
+      "label": "Aggressive Mode",
+      "description": "Use more payloads (slower but thorough)",
+      "default": false
+    },
+    "auto_scan": {
+      "type": "boolean",
+      "label": "Auto Scan Forms",
+      "description": "Automatically scan forms on page load",
+      "default": false
+    },
+    "custom_payloads": {
+      "type": "textarea",
+      "label": "Custom Payloads",
+      "description": "One payload per line",
+      "default": ""
+    }
+  }
+}
