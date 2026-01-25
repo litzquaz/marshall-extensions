@@ -6,36 +6,48 @@ The Marshall Extensions sandbox provides a secure, isolated environment for runn
 
 ## Overview
 
+```mermaid
+flowchart TB
+    subgraph Browser["🌐 Marshall Browser"]
+        subgraph CommLayer["📡 Secure Communication Layer<br/><i>TypeScript • AES-256-GCM</i>"]
+            ECDH["🔑 ECDH<br/>Key Exchange"]
+            Sign["✍️ Message<br/>Signing"]
+            Replay["🛡️ Replay<br/>Protection"]
+        end
+        
+        subgraph SandboxCore["🦀 Sandbox Core Runtime<br/><i>Rust • libseccomp</i>"]
+            Isolation["🔒 Isolation<br/>Engine"]
+            Verify["✅ Verification<br/>Ed25519"]
+            Threat["⚠️ Threat<br/>Detection"]
+        end
+        
+        subgraph Honeypot["🍯 Honeypot System<br/><i>Go • Deception Services</i>"]
+            NetHP["🌐 Network"]
+            ApiHP["🔌 API"]
+            FileHP["📁 File"]
+            DataHP["🔑 Data"]
+        end
+    end
+    
+    Ext["🧩 Extension"] ==> CommLayer
+    CommLayer ==> SandboxCore
+    SandboxCore ==> Honeypot
+    Threat -.->|"Threat Score > 50"| Honeypot
+    
+    style Browser fill:#0d1117,stroke:#30363d,stroke-width:3px,color:#c9d1d9
+    style CommLayer fill:#161b22,stroke:#6e40c9,stroke-width:2px,color:#c9d1d9
+    style SandboxCore fill:#161b22,stroke:#da3633,stroke-width:2px,color:#c9d1d9
+    style Honeypot fill:#161b22,stroke:#238636,stroke-width:2px,color:#c9d1d9
+    style Ext fill:#21262d,stroke:#58a6ff,stroke-width:2px,color:#c9d1d9
 ```
-┌───────────────────────────────────────────────────────────────┐
-│                       Marshall Browser                        │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │             Secure Communication Layer                  │  │
-│  │            (TypeScript - AES-256-GCM)                   │  │
-│  │  • ECDH key exchange                                    │  │
-│  │  • Message signing                                      │  │
-│  │  • Replay protection                                    │  │
-│  └─────────────────────────────────────────────────────────┘  │
-│                             ▼                                 │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │              Sandbox Core Runtime                       │  │
-│  │               (Rust - libseccomp)                       │  │
-│  │  ┌─────────────┐ ┌─────────────┐ ┌─────────────────┐   │  │
-│  │  │  Isolation  │ │ Verification│ │ Threat Detection│   │  │
-│  │  │   Engine    │ │  (Ed25519)  │ │    (Scoring)    │   │  │
-│  │  └─────────────┘ └─────────────┘ └─────────────────┘   │  │
-│  └─────────────────────────────────────────────────────────┘  │
-│                             ▼                                 │
-│  ┌─────────────────────────────────────────────────────────┐  │
-│  │                   Honeypot System                       │  │
-│  │                        (Go)                             │  │
-│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌───────────────┐ │  │
-│  │  │ Network │ │   API   │ │  File   │ │Data Honeytokens│ │  │
-│  │  │ Honeypot│ │ Honeypot│ │ Honeypot│ │ (Fake Creds)  │ │  │
-│  │  └─────────┘ └─────────┘ └─────────┘ └───────────────┘ │  │
-│  └─────────────────────────────────────────────────────────┘  │
-└───────────────────────────────────────────────────────────────┘
-```
+
+### Architecture Layers
+
+| Layer | Language | Key Features |
+|-------|----------|--------------|
+| **🔐 Communication** | TypeScript | AES-256-GCM encryption, ECDH key exchange, replay protection |
+| **🦀 Sandbox Core** | Rust | seccomp syscall filtering, namespace isolation, threat scoring |
+| **🍯 Honeypot** | Go | Fake services, credential honeytokens, intrusion detection |
 
 ---
 
@@ -210,94 +222,48 @@ type ThreatEvent struct {
 
 ### 1. Loading
 
-```
-Extension Package
-       │
-       ▼
-┌─────────────────┐
-│   Verification  │ ← Ed25519 signature check
-│   (verification │
-│      .rs)       │
-└────────┬────────┘
-         │
-         ▼ (valid)
-┌─────────────────┐
-│   Permission    │ ← Parse manifest.json
-│   Parsing       │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│   Sandbox       │ ← Create isolated process
-│   Creation      │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│   Key Exchange  │ ← ECDH handshake
-└────────┬────────┘
-         │
-         ▼
-     Extension
-     Running
+```mermaid
+flowchart LR
+    A["📦 Extension<br/>Package"] --> B["🔐 Verification<br/>Ed25519"]
+    B -->|Valid| C["📋 Permission<br/>Parsing"]
+    C --> D["📦 Sandbox<br/>Creation"]
+    D --> E["🔑 Key<br/>Exchange"]
+    E --> F["✅ Running"]
+    
+    B -->|Invalid| X["❌ Rejected"]
+    
+    style A fill:#21262d,stroke:#58a6ff
+    style F fill:#238636,stroke:#3fb950
+    style X fill:#da3633,stroke:#f85149
 ```
 
 ### 2. API Calls
 
-```
-Extension                Sandbox                Browser
-    │                       │                      │
-    │  API Request          │                      │
-    │──────────────────────►│                      │
-    │                       │                      │
-    │                 ┌─────┴─────┐                │
-    │                 │ Permission│                │
-    │                 │   Check   │                │
-    │                 └─────┬─────┘                │
-    │                       │                      │
-    │                 ┌─────┴─────┐                │
-    │                 │  Threat   │                │
-    │                 │  Scoring  │                │
-    │                 └─────┬─────┘                │
-    │                       │                      │
-    │                       │ Encrypted Request    │
-    │                       │─────────────────────►│
-    │                       │                      │
-    │                       │◄─────────────────────│
-    │                       │ Encrypted Response   │
-    │                       │                      │
-    │◄──────────────────────│                      │
-    │  API Response         │                      │
+```mermaid
+sequenceDiagram
+    participant E as 🧩 Extension
+    participant S as 🦀 Sandbox
+    participant B as 🌐 Browser
+    
+    E->>S: API Request
+    S->>S: Permission Check
+    S->>S: Threat Scoring
+    S->>B: Encrypted Request
+    B->>S: Encrypted Response
+    S->>E: API Response
 ```
 
 ### 3. Threat Response
 
-When threat score exceeds threshold:
-
-```
-High Threat Score Detected
-         │
-         ▼
-┌─────────────────┐
-│  Log Incident   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Redirect to     │
-│ Honeypot        │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Continue        │
-│ Monitoring      │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Generate Report │
-└─────────────────┘
+```mermaid
+flowchart LR
+    A["⚠️ High Threat<br/>Score"] --> B["📝 Log<br/>Incident"]
+    B --> C["🍯 Redirect to<br/>Honeypot"]
+    C --> D["👁️ Continue<br/>Monitoring"]
+    D --> E["📊 Generate<br/>Report"]
+    
+    style A fill:#da3633,stroke:#f85149
+    style C fill:#238636,stroke:#3fb950
 ```
 
 ---
