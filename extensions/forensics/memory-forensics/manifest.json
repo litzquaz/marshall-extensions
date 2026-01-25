@@ -1,0 +1,28 @@
+{
+  "name": "memory-forensics",
+  "version": "1.0.0",
+  "description": "Analyze in-memory artifacts and detect suspicious patterns",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "debugger",
+    "storage",
+    "tabs"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "forensics",
+  "marshall_version": ">=1.0.0",
+  "sandbox": {
+    "required": true,
+    "level": "paranoid"
+  },
+  "keywords": [
+    "forensics",
+    "memory",
+    "analysis",
+    "security",
+    "artifacts"
+  ]
+}

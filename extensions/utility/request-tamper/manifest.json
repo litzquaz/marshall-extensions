@@ -1,0 +1,14 @@
+{
+  "name": "request-tamper",
+  "version": "1.0.0",
+  "description": "Intercept, modify, and replay HTTP requests for testing",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": ["webRequest", "webRequestBlocking", "storage", "tabs"],
+  "main": "main.lua",
+  "icon": "icon.png",
+  "category": "utility",
+  "sandbox": { "required": true, "level": "standard" },
+  "keywords": ["proxy", "intercept", "tamper", "request", "testing"]
+}

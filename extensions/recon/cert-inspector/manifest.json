@@ -1,0 +1,14 @@
+{
+  "name": "cert-inspector",
+  "version": "1.0.0",
+  "description": "Deep SSL/TLS certificate analysis and chain verification",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": ["activeTab", "network"],
+  "main": "main.rb",
+  "icon": "icon.png",
+  "category": "recon",
+  "sandbox": { "required": true, "level": "standard" },
+  "keywords": ["ssl", "tls", "certificate", "security", "pki"]
+}

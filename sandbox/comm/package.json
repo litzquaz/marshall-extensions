@@ -1,0 +1,38 @@
+{
+  "name": "@marshall/sandbox-comm",
+  "version": "1.0.0",
+  "description": "Secure communication layer for Marshall extension sandbox",
+  "main": "dist/channel.js",
+  "types": "dist/channel.d.ts",
+  "author": "bad-antics",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bad-antics/marshall-extensions.git"
+  },
+  "keywords": [
+    "marshall",
+    "sandbox",
+    "security",
+    "extension"
+  ]
+}

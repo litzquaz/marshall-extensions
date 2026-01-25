@@ -1,0 +1,29 @@
+{
+  "name": "traffic-analyzer",
+  "version": "1.0.0",
+  "description": "Real-time network traffic analysis and anomaly detection",
+  "author": "bad-antics",
+  "homepage": "https://github.com/bad-antics/marshall-extensions",
+  "license": "MIT",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "tabs"
+  ],
+  "main": "main.js",
+  "icon": "icon.png",
+  "category": "network",
+  "marshall_version": ">=1.0.0",
+  "sandbox": {
+    "required": true,
+    "level": "standard"
+  },
+  "keywords": [
+    "network",
+    "traffic",
+    "analysis",
+    "monitoring",
+    "security"
+  ]
+}

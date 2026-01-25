@@ -1,0 +1,44 @@
+[package]
+name = "marshall-sandbox"
+version = "1.0.0"
+edition = "2021"
+authors = ["bad-antics <bad-antics@nullsec.dev>"]
+description = "Secure sandbox runtime for Marshall browser extensions"
+license = "MIT"
+repository = "https://github.com/bad-antics/marshall-extensions"
+
+[lib]
+name = "marshall_sandbox"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sandbox-daemon"
+path = "src/bin/daemon.rs"
+
+[dependencies]
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ring = "0.17"
+md5 = "0.7"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+nix = { version = "0.27", features = ["process", "signal"] }
+caps = "0.5"
+seccomp = "0.1"
+
+[dev-dependencies]
+criterion = "0.5"
+tempfile = "3.8"
+
+[features]
+default = ["honeypot"]
+honeypot = []
+debug = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
